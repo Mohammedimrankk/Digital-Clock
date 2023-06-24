@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<windows.h>
+int main(){ 
+    int h,m,s;
+    int d=1000;
+    printf("Enter the value of Hour's (0-23) : ");
+    scanf("%02d",&h);
+
+    printf("Enter the value of Minute's (0-60) : ");
+    scanf("%02d",&m);
+
+    printf("Enter the value of Second's (0-60) : ");
+    scanf("%02d",&s);
+    
+
+    if(h>23 & m>60 & s>60){
+        printf("Wrong Hour's,Minute's and Second's value entered !\n");
+        exit(0);
+    }
+    else if(h>23 & m>60){
+        printf("Wrong Hour's and Minute's value entered !\n");
+        exit(0);
+    }
+    else if(h>23 & s>60){
+        printf("Wrong Hour's and Second's value entered !\n");
+        exit(0);
+    }    
+    else if(m>12 & s>60){
+        printf("Wrong Minute's and Second's value entered !\n");
+        exit(0);
+    }        
+    else if(h>23){
+        printf("Wrong Hour's value entered !\n");
+        exit(0);
+
+    }
+    else if(m>60){
+        printf("Wrong Minute's value entered !\n");
+        exit(0);
+    }
+    else if(s>60){
+        printf("Wrong Second's value entered !\n");
+        exit(0);
+    }
+    else{
+        printf("Right values of Hour's,Minute's and Second's entered.");
+    }
+
+    while(1){
+        s++;
+        if(s>59){
+            m++;
+            s=0;
+        }
+        if(m>59)
+        {
+            h++;
+            m=0;
+        }
+        if(h>23){
+            h=1;
+        }
+        printf("\n Clock : ");
+        if(h<12){
+        printf(" %02d : %02d : %02d AM",h,m,s);    
+        }
+        else{
+        printf(" %02d : %02d : %02d PM",h,m,s);
+        }
+        Sleep(d);
+        system("cls");
+
+    }
+}
